@@ -1,4 +1,5 @@
 # Android_apk_installer
+### "Automate the way you install multiple apk files to an android device"
 #### A .bat file executable through cmd, alloes the user to install multiple apk files to a connected android device directly from a folder
 **Dependencies:**
 adb (android debug brigde) installed and accessible by path

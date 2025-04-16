@@ -1,25 +1,84 @@
-# Android APK Installer #
-### Android APK Installer is a tool that automates the process of installing multiple APK files to an Android device directly from a folder. It is an executable batch (.bat) file that can be run through the command prompt. ###
+# Android APK Installer (CLI) ⚙️
 
-## Dependencies ##
-To use this tool, you must have adb (Android Debug Bridge) installed and accessible by path.
+A simple command-line tool to automate the installation of multiple APK files on a connected Android device using ADB.  
+This lightweight utility is powered by a single `.bat` script and is ideal for fast deployment, testing environments, or automation tasks.
 
-## How to add adb to path ## 
-1.Open the command prompt.
-2.Type  %USERPROFILE%\AppData\Local\Android\sdk\platform-tools to get the path for adb.exe.
-3.Click 'Start'.
-4.Type 'Edit environment variables for your account', and click it.
-5.Double click PATH.
-6.Click 'New'.
-7.Paste the path you obtained earlier.
-8.Click 'OK', 'OK', and restart any command prompts you have open.
+---
 
-## Usage ##
-To use Android APK Installer, simply navigate to the folder containing the APK files you wish to install and run the batch file.
+## 📦 Features
 
-For fast accessibility, you can set the path to the batch file using the set function in the command prompt. This will allow you to use a shortcut, such as android_installer, which can be used as a call for the batch file using %android_installer%.
+- 📂 Install all APKs from a selected folder
+- ⚡ No GUI required — pure batch execution
+- 🔁 Can be looped or scripted for CI setups
+- 🧰 Easy to set up on any Windows machine
 
-# Credits & Licenss #
-This program is released under the MIT License, which means it is free for commercial and non-commercial use, modification, and distribution, subject to the following conditions:
+---
 
-The Software is provided "as is," without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the Software or the use or other dealings in the Software. This means that you can use this package for free in your own projects, modify it to suit your needs, and even distribute it to others. However, please note that the MIT License does not come with any warranty, so use the package at your own risk.
+## 🔧 Dependencies
+
+This tool requires [ADB (Android Debug Bridge)](https://developer.android.com/studio/command-line/adb) to be installed and accessible via your system `PATH`.
+
+---
+
+## 🛠 How to Add ADB to PATH
+
+1. Open Command Prompt  
+2. Run:
+   ```cmd
+   echo %USERPROFILE%\AppData\Local\Android\sdk\platform-tools
+   ```
+   This will give you the path to `adb.exe`
+
+3. Open **Start** and search: `Edit environment variables for your account`  
+4. Click `PATH` → Edit → `New`  
+5. Paste the ADB path  
+6. Click OK on all dialogs  
+7. Restart any open terminals
+
+---
+
+## 🚀 Usage
+
+1. Place the batch file (`install_all.bat`) inside the folder containing your `.apk` files  
+2. Double-click the file, or run it via Command Prompt:
+   ```cmd
+   install_all.bat
+   ```
+
+### Optional: Set a global shortcut
+
+To simplify usage from any location:
+
+```cmd
+set android_installer=C:\path\to\install_all.bat
+%android_installer%
+```
+
+---
+
+## 📂 Example
+
+```bash
+📁 MyAPKFolder/
+├── app-release.apk
+├── module-feature.apk
+└── install_all.bat ← run this file!
+```
+
+All `.apk` files in the folder will be installed one by one via ADB.
+
+---
+
+## 📄 License
+
+MIT License © [Dean Aviv](https://github.com/DeanAviv)
+
+This project is licensed under the [MIT License](LICENSE), meaning you are free to use, modify, and distribute it.  
+Use at your own risk. No warranties are provided.
+
+---
+
+## 🙌 Credits
+
+Developed as part of a tooling project for Android developers and testers.  
+Looking for a user-friendly interface? Check out the [GUI version](https://github.com/DeanAviv/android-apk-installer) built with WPF.
